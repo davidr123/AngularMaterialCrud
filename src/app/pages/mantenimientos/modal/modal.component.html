@@ -1,0 +1,25 @@
+
+<div >
+    <h1 mat-dialog-title>Cargar Imagen</h1>
+    <div mat-dialog-content>
+      <p>Seleccione una imagen</p>
+
+      <div class="text-center">
+        <img *ngIf="!imgTemp" [src]= "imagenModalService.img" class="w110"  />
+        <img *ngIf="imgTemp" [src]="imgTemp" class="w110" />
+       </div>
+
+      <input type="file"
+      (change)="cambiarImagen($any($event).target.files[0])">
+ 
+    </div>
+    <div mat-dialog-actions   >
+      <button mat-raised-button color="primary" (click)="onNoClick()"  >Cancelar</button>
+    &nbsp;
+      <button mat-raised-button color="primary"  (click)="ActualizarFotoPerfil()"  [mat-dialog-close]="data.img">Cargar</button>
+    </div>
+
+
+</div>
+
+   

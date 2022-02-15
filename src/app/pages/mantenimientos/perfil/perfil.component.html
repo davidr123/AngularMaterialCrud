@@ -1,0 +1,70 @@
+
+
+<div class="row">
+    <div class="category-container mat-elevation-z8">
+        <div class="col-md-6">
+            <h4 class="card-title" style="text-align: center;">Mi perfil de usuario</h4>
+
+      <mat-form-field  [formGroup]="FormPerfil"   appearance="legacy">
+    <mat-label></mat-label>
+    <input  formControlName="nombre" matInput placeholder="nombre">
+    <mat-icon matSuffix>account_circle</mat-icon>
+    <mat-hint>UserName</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field [formGroup]="FormPerfil" appearance="legacy">
+    <mat-label></mat-label>
+    <input formControlName="email" matInput placeholder="email">
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-hint>Email</mat-hint>
+  </mat-form-field>
+
+  <br>
+  <br>
+  <button  (click)="ActualizarPerfil()" 
+   mat-raised-button color="warn"
+   [disabled]="FormPerfil.invalid"
+   >
+    <mat-icon matSuffix>save</mat-icon>
+    Guardar Cambios</button>
+
+    </div>
+    </div>
+
+<br>
+<br>
+
+&nbsp;
+&nbsp;
+    <div class="col-md-6">
+    <div class="category-container mat-elevation-z8">
+       <h4 class="card-title" style="text-align: center;">Avatar</h4>
+
+       <div class="text-center">
+        <img *ngIf="!imgTemp" [src]= "usuario.getImgUrl" class="w110" />
+        <img *ngIf="imgTemp" [src]="imgTemp" class="w110" />
+       </div>
+     
+
+       <br>
+
+       <input type="file"
+       (change)="cambiarImagen($any($event).target.files[0])">
+
+   
+
+    <br>
+    <br>
+    <br>
+
+    <button mat-raised-button color="warn"
+    [disabled]="!imagenSubir"
+    (click)="ActualizarFotoPerfil()">
+        <mat-icon matSuffix>save</mat-icon>
+        Cambiar Imagen</button>
+    </div>
+    
+    </div>
+</div>
+
+

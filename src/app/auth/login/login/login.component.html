@@ -1,0 +1,30 @@
+<div class="container login-container relative " >
+    <div class="row element">
+        <div class="col-md-6 login-form-1">
+            <h3>Login User</h3>
+            <form
+            class="form-horizontal form-material" 
+            [formGroup]="formlogin"
+            (click)="LoginUser()"
+            >
+                <div class="form-group">
+                    <input type="text" 
+                    class="form-control" 
+                    placeholder="Ingrese su Email *" 
+                     formControlName="email"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" 
+                    class="form-control" 
+                    placeholder="Ingrese su Password*" 
+                    formControlName="password"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+                <div class="form-group">
+                    <a routerLink='/register' class="btnForgetPwd">Registro</a>
+                </div>
+            </form>
+        </div>
+      
