@@ -49,7 +49,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     LayoutModule,
     MatDialogModule,
     PagesRoutingModule,
-    PagesModule,
+   
     
   
 

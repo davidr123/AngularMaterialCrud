@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
+
 import { PerfilComponent } from './mantenimientos/perfil/perfil.component';
 import { PruebamatComponent } from './mantenimientos/pruebamat/pruebamat.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
@@ -25,7 +27,8 @@ const routes:Routes=[
       
           {path: 'usuarios', component: UsuariosComponent},
           {path: 'perfil', component: PerfilComponent},
-          {path: 'md1', component: PruebamatComponent},
+          {path: 'hospitales', component: HospitalesComponent},
+         
        
         ]
     

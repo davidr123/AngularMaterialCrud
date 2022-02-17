@@ -32,6 +32,7 @@ import { ModalComponent } from './mantenimientos/modal/modal.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PruebamatComponent } from './mantenimientos/pruebamat/pruebamat.component';
 import { ModalpruebaComponent } from './mantenimientos/modalprueba/modalprueba.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 
 
 
@@ -43,7 +44,8 @@ PagesComponent,
  UsuariosComponent,
 ModalComponent,
 PruebamatComponent,
-ModalpruebaComponent
+ModalpruebaComponent,
+HospitalesComponent
 
  
 

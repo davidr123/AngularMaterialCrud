@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { map } from 'rxjs';
 import { Hospital } from 'src/app/models/hospital.models';
 import { HospitalesService } from 'src/app/services/hospitales.service';
 
@@ -14,25 +12,25 @@ import { HospitalesService } from 'src/app/services/hospitales.service';
 })
 export class HospitalesComponent implements OnInit {
 
-  ELEMENT_DATA_HOSPITAL: Hospital[]=[];
+  public hospitales:Hospital[]=[];
 
-  displayedColumnsHospitales=['avatar', 'nombre', 'acciones']
+  ELEMENT_DATA: Hospital[]=[];
 
+  displayedColumns: string[] = ['avatar',  'nombre',  'acciones'];
+  dataSource= new MatTableDataSource<Hospital>(this.ELEMENT_DATA);
+    
   @ViewChild(MatPaginator) paginator: MatPaginator;
-@ViewChild(MatSort) sort: MatSort;
-
-public cargando: boolean= true;
-public hospitales: Hospital[]=[];
-
-dataSource= new MatTableDataSource<Hospital>(this.ELEMENT_DATA_HOSPITAL);
-
-ngAfterViewInit() {
-  this.dataSource.paginator = this.paginator;
- // this.dataSource.sort = this.sort;
+  @ViewChild(MatSort) sort: MatSort;
+  public cargando: boolean= true;
   
-}
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    
+  }
 
-  constructor( public dialog: MatDialog, private hospitalService:HospitalesService) { }
+
+  constructor(private hospitalService: HospitalesService) { }
 
   ngOnInit(): void {
     this.CargarHospitales();
@@ -48,17 +46,12 @@ ngAfterViewInit() {
   }
 
   CargarHospitales(){
-    this.cargando=true
-this.hospitalService.cargarhospitales().
 
-subscribe(hospitalDB=>{
-  this.cargando=false;
-  console.log(hospitalDB);
-
-
-  
-} )
-
+    this.hospitalService.cargarhospital()
+    .subscribe(resp=> {
+      this.hospitales= resp.hospital;
+      console.log(this.hospitales);
+    })
   }
 
 }
